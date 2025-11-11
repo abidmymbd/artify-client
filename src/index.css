@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+.btn-nav {
+    @apply hover:text-[#8BBA45] bg-white font-semibold;
+}
+
+.btn-auth {
+  @apply bg-[#ecf8d9] text-black font-semibold border border-none transition-colors duration-300;
+}
+
+.btn-auth:hover {
+  @apply bg-[#8BBA45] text-white;
+}
