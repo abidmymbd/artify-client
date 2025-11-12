@@ -65,7 +65,7 @@ const Navbar = () => {
                         {user && (
                             <>
                                 <li><Link to="/addartwork" className="btn-nav">Add Artwork</Link></li>
-                                <li><Link to="/my-gallery" className="btn-nav">My Gallery</Link></li>
+                                <li><Link to="/mygallery" className="btn-nav">My Gallery</Link></li>
                                 <li><Link to="/my-favorites" className="btn-nav">My Favorites</Link></li>
                             </>
                         )}
@@ -86,7 +86,7 @@ const Navbar = () => {
                     {user && (
                         <>
                             <li><Link to="/addartwork" className="btn-nav">Add Artwork</Link></li>
-                            <li><Link to="/my-gallery" className="btn-nav">My Gallery</Link></li>
+                            <li><Link to="/mygallery" className="btn-nav">My Gallery</Link></li>
                             <li><Link to="/my-favorites" className="btn-nav">My Favorites</Link></li>
                         </>
                     )}

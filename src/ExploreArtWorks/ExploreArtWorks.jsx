@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const ExploreArtWorks = () => {
     const [artworks, setArtworks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchText, setSearchText] = useState("");
-
 
     const fetchArtworks = async (query = "") => {
         setLoading(true);
@@ -19,7 +19,6 @@ const ExploreArtWorks = () => {
         }
     };
 
-
     useEffect(() => {
         fetchArtworks();
     }, []);
@@ -27,7 +26,7 @@ const ExploreArtWorks = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             fetchArtworks(searchText);
-        }, 500); 
+        }, 500);
 
         return () => clearTimeout(timer);
     }, [searchText]);
@@ -77,9 +76,14 @@ const ExploreArtWorks = () => {
                                 <p className="text-sm text-gray-600">
                                     <strong>Likes:</strong> {art.likes || 0}
                                 </p>
-                                <button className="mt-3 w-full bg-[#8BBA45] text-white py-2 rounded-lg font-medium hover:bg-[#7aa73c]">
+
+                               
+                                <Link
+                                    to={`/artworks/${art._id}`}
+                                    className="mt-3 w-full bg-[#8BBA45] text-white py-2 rounded-lg font-medium hover:bg-[#7aa73c] text-center block"
+                                >
                                     View Details
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     ))}

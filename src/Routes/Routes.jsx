@@ -7,6 +7,7 @@ import Error from "../Error/Error";
 import AddArtWork from "../AddArtWork/AddArtWork";
 import ExploreArtWorks from "../ExploreArtWorks/ExploreArtWorks";
 import SingleArtWork from "../SingleArtWork/SingleArtWork";
+import MyGallery from "../MyGallery/MyGallery";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: "/artworks/:id",
                 Component: SingleArtWork,
+            },
+            {
+                path: "/mygallery",
+                Component: MyGallery,
             },
         ]
     },
