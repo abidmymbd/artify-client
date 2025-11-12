@@ -13,6 +13,7 @@ const Navbar = () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
+            // console.log("User object:", currentUser);
             setLoading(false)
         });
         return () => unsubscribe()
@@ -101,13 +102,20 @@ const Navbar = () => {
             <div className="navbar-end flex items-center justify-end">
                 {user && (
                     <div className="tooltip tooltip-bottom" data-tip={user.displayName || "No Name"}>
-                        <img
-                            className="mr-3 w-10 h-10 rounded-full cursor-pointer"
-                            src={ user.photoURL || userLogo }
-                            alt="User"
-                        />
+                        {user.photoURL ? (
+                            <img
+                                className="mr-3 w-10 h-10 rounded-full cursor-pointer object-cover"
+                                src={user.photoURL}
+                                alt="User"
+                                referrerPolicy="no-referrer"
+                                onError={(e) => { e.target.src = userLogo; }}
+                            />
+                        ) : (
+                            <img src={userLogo} alt="User" className="mr-3 w-10 h-10 rounded-full cursor-pointer" />
+                        )}
                     </div>
                 )}
+
                 {user ? (
                     <button
                         onClick={handleLogout}
