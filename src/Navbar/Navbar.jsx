@@ -60,11 +60,11 @@ const Navbar = () => {
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li><Link to="/" className="btn-nav">Home</Link></li>
-                        <li><Link to="/explore-artworks" className="btn-nav">Explore Artworks</Link></li>
+                        <li><Link to="/exploreartworks" className="btn-nav">Explore Artworks</Link></li>
 
                         {user && (
                             <>
-                                <li><Link to="/add-artwork" className="btn-nav">Add Artwork</Link></li>
+                                <li><Link to="/addartwork" className="btn-nav">Add Artwork</Link></li>
                                 <li><Link to="/my-gallery" className="btn-nav">My Gallery</Link></li>
                                 <li><Link to="/my-favorites" className="btn-nav">My Favorites</Link></li>
                             </>
@@ -81,11 +81,11 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/" className="btn-nav">Home</Link></li>
-                    <li><Link to="/explore-artworks" className="btn-nav">Explore Artworks</Link></li>
+                    <li><Link to="/exploreartworks" className="btn-nav">Explore Artworks</Link></li>
 
                     {user && (
                         <>
-                            <li><Link to="/add-artwork" className="btn-nav">Add Artwork</Link></li>
+                            <li><Link to="/addartwork" className="btn-nav">Add Artwork</Link></li>
                             <li><Link to="/my-gallery" className="btn-nav">My Gallery</Link></li>
                             <li><Link to="/my-favorites" className="btn-nav">My Favorites</Link></li>
                         </>
