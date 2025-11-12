@@ -75,9 +75,9 @@ const AddArtwork = () => {
             <div className="min-h-screen flex items-start justify-center bg-gray-50 py-10 px-4">
                 <div className="max-w-5xl w-full bg-white p-8 rounded-3xl shadow-lg border border-[#8BBA45] flex flex-col md:flex-row gap-8">
 
-                    
+
                     <div className="flex-1 flex flex-col items-center">
-                        
+
                         {formData.imageUrl ? (
                             <img
                                 src={formData.imageUrl}
