@@ -9,6 +9,7 @@ import ExploreArtWorks from "../ExploreArtWorks/ExploreArtWorks";
 import SingleArtWork from "../SingleArtWork/SingleArtWork";
 import MyGallery from "../MyGallery/MyGallery";
 import MyFavourites from "../MyFavourites/MyFavourites";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -29,10 +30,6 @@ const router = createBrowserRouter([
                 Component: SignUp,
             },
             {
-                path: "/addartwork",
-                Component: AddArtWork,
-            },
-            {
                 path: "/exploreartworks",
                 Component: ExploreArtWorks,
             },
@@ -41,13 +38,22 @@ const router = createBrowserRouter([
                 Component: SingleArtWork,
             },
             {
-                path: "/mygallery",
-                Component: MyGallery,
-            },
-            {
-                path: "/myfavourites",
-                Component: MyFavourites,
-            },
+                element: <PrivateRoutes></PrivateRoutes>,
+                children: [
+                    {
+                        path: "/mygallery",
+                        Component: MyGallery,
+                    },
+                    {
+                        path: "/myfavourites",
+                        Component: MyFavourites,
+                    },
+                    {
+                        path: "/addartwork",
+                        Component: AddArtWork,
+                    },
+                ]
+            }
         ]
     },
     {
