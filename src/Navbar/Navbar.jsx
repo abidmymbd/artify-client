@@ -1,12 +1,13 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { auth } from '../firebase.config';
 
 const Navbar = () => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -20,6 +21,7 @@ const Navbar = () => {
         try {
             await signOut(auth);
             console.log('User logged out');
+            navigate("/")
         } catch (error) {
             console.error('Logout failed:', error);
         }
