@@ -8,6 +8,7 @@ import AddArtWork from "../AddArtWork/AddArtWork";
 import ExploreArtWorks from "../ExploreArtWorks/ExploreArtWorks";
 import SingleArtWork from "../SingleArtWork/SingleArtWork";
 import MyGallery from "../MyGallery/MyGallery";
+import MyFavourites from "../MyFavourites/MyFavourites";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: "/mygallery",
                 Component: MyGallery,
+            },
+            {
+                path: "/myfavourites",
+                Component: MyFavourites,
             },
         ]
     },

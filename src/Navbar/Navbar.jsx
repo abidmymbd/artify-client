@@ -68,7 +68,7 @@ const Navbar = () => {
                             <>
                                 <li><Link to="/addartwork" className="btn-nav">Add Artwork</Link></li>
                                 <li><Link to="/mygallery" className="btn-nav">My Gallery</Link></li>
-                                <li><Link to="/my-favorites" className="btn-nav">My Favorites</Link></li>
+                                <li><Link to="/myfavourites" className="btn-nav">My Favorites</Link></li>
                             </>
                         )}
                     </ul>
@@ -89,7 +89,7 @@ const Navbar = () => {
                         <>
                             <li><Link to="/addartwork" className="btn-nav">Add Artwork</Link></li>
                             <li><Link to="/mygallery" className="btn-nav">My Gallery</Link></li>
-                            <li><Link to="/my-favorites" className="btn-nav">My Favorites</Link></li>
+                            <li><Link to="/myfavourites" className="btn-nav">My Favorites</Link></li>
                         </>
                     )}
                 </ul>
