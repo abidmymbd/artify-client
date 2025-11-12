@@ -2,6 +2,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { auth } from '../firebase.config';
+import userLogo from "../assets/user.png"
 
 const Navbar = () => {
 
@@ -98,6 +99,15 @@ const Navbar = () => {
 
 
             <div className="navbar-end flex items-center justify-end">
+                {user && (
+                    <div className="tooltip tooltip-bottom" data-tip={user.displayName || "No Name"}>
+                        <img
+                            className="mr-3 w-10 h-10 rounded-full cursor-pointer"
+                            src={ user.photoURL || userLogo }
+                            alt="User"
+                        />
+                    </div>
+                )}
                 {user ? (
                     <button
                         onClick={handleLogout}
