@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 import { FaHeart, FaCrown } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
+import { AiFillLike } from "react-icons/ai";
 
 const CommunityHighlights = () => {
     const [highlights, setHighlights] = useState([]);
@@ -41,7 +42,7 @@ const CommunityHighlights = () => {
                             "Discover stunning art shared by passionate artists worldwide.",
                             "Join the movement. Share your creativity. Inspire others!"
                         ]}
-                        loop={0} 
+                        loop={0}
                         cursor
                         cursorStyle="|"
                         typeSpeed={50}
@@ -74,7 +75,7 @@ const CommunityHighlights = () => {
 
                             <div className="flex justify-between items-center mt-4">
                                 <span className="flex items-center text-[#8BBA45] font-semibold">
-                                    <FaHeart className="mr-1 text-red-500" /> {art.likes || 0}
+                                    <AiFillLike className="mr-1 text-[#376fe0] text-2xl" /> {art.likes || 0}
                                 </span>
 
                                 <Link
