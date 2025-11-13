@@ -3,11 +3,11 @@
 
 
 .btn-nav {
-    @apply hover:text-[#8BBA45] bg-white font-semibold;
+  @apply bg-base-100 text-base-content hover:text-[#8BBA45] font-semibold transition-colors duration-300;
 }
 
 .btn-auth {
-  @apply bg-[#ecf8d9] text-black font-semibold border border-none transition-colors duration-300;
+  @apply bg-[#ecf8d9] text-black font-semibold border-none rounded-md transition-colors duration-300;
 }
 
 .btn-auth:hover {

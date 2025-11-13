@@ -38,7 +38,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar my-5">
+        <div className="navbar bg-base-100 text-base-content my-5 transition-colors duration-300">
 
             <div className="navbar-start">
                 <div className="dropdown">
@@ -62,7 +62,7 @@ const Navbar = () => {
 
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow">
                         <li><Link to="/" className="btn-nav">Home</Link></li>
                         <li><Link to="/exploreartworks" className="btn-nav">Explore Artworks</Link></li>
 

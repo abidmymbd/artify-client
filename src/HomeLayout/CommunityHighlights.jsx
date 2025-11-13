@@ -30,7 +30,7 @@ const CommunityHighlights = () => {
     }
 
     return (
-        <section className="pb-16 bg-gradient-to-b from-white to-[#f8faf5]">
+        <section className="pb-16">
             <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-5xl font-bold text-[#8BBA45] mb-3">
                     Community Highlights
