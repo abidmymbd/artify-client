@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { toast } from "react-hot-toast";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiLike } from "react-icons/bi";
+import userLogo from '../assets/user.png'
 
 const SingleArtWork = () => {
     const { id } = useParams();
@@ -12,10 +13,9 @@ const SingleArtWork = () => {
     const [favoriteId, setFavoriteId] = useState(null);
     const [totalArtworks, setTotalArtworks] = useState(0);
 
-    // Temporary mock — replace with real auth user email later
     const userEmail = "test@example.com";
 
-    // 🟢 Fetch artwork and check favorite status
+    // Fetch artwork and check favorite status
     useEffect(() => {
         const fetchArtworkAndFavorites = async () => {
             try {
@@ -32,7 +32,7 @@ const SingleArtWork = () => {
                         .catch(() => toast.error("Failed to load artist info"));
                 }
 
-                // 🟢 Check if this artwork is already in favorites
+                // Check if this artwork is already in favorites
                 const favRes = await fetch(`http://localhost:3000/favorites/${userEmail}`);
                 const favData = await favRes.json();
                 const found = favData.find((f) => f.artworkId === id);
@@ -49,11 +49,11 @@ const SingleArtWork = () => {
         fetchArtworkAndFavorites();
     }, [id, userEmail]);
 
-    // ❤️ Toggle Favorite
+    // Toggle Favorite
     const handleToggleFavorite = async () => {
         try {
             if (favorite) {
-                // 🗑 Remove from favorites
+                // Remove from favorites
                 const res = await fetch(`http://localhost:3000/favorites/${favoriteId}`, {
                     method: "DELETE",
                 });
@@ -67,7 +67,7 @@ const SingleArtWork = () => {
                     toast.error("Failed to remove favorite");
                 }
             } else {
-                // ➕ Add to favorites
+                // Add to favorites
                 const res = await fetch("http://localhost:3000/favorites", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -102,7 +102,7 @@ const SingleArtWork = () => {
         }
     };
 
-    // 👍 Like handler
+    // Like handler
     const handleLike = async () => {
         if (liked) return;
         try {
@@ -132,6 +132,21 @@ const SingleArtWork = () => {
             />
 
             <div className="space-y-2 text-gray-700">
+                {artwork && (
+                    <div className="tooltip tooltip-bottom">
+                        {artwork.photoURL ? (
+                            <img
+                                className="mr-3 w-10 h-10 rounded-full cursor-pointer object-cover"
+                                src={artwork.photoURL}
+                                alt="User"
+                                referrerPolicy="no-referrer"
+                                onError={(e) => { e.target.src = userLogo; }}
+                            />
+                        ) : (
+                            <img src={userLogo} alt="User" className="mr-3 w-10 h-10 rounded-full cursor-pointer" />
+                        )}
+                    </div>
+                )}
                 <p><span className="font-bold">Artist:</span> {artwork.userName || "Anonymous"}</p>
                 <p><span className="font-bold">Email:</span> {artwork.userEmail || "N/A"}</p>
                 <p><span className="font-bold">Total Artworks:</span> {totalArtworks}</p>
