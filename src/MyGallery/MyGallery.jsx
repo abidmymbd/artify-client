@@ -26,7 +26,7 @@ const MyGallery = () => {
     const fetchArtworks = async () => {
         if (!user) return;
         try {
-            const res = await fetch(`http://localhost:3000/artworks?email=${user.email}`);
+            const res = await fetch(`https://artify-server-jade.vercel.app/artworks?email=${user.email}`);
             if (res.ok) {
                 const data = await res.json();
                 setArtworks(data);
@@ -53,7 +53,8 @@ const MyGallery = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const res = await fetch(`http://localhost:3000/artworks/${id}`, { method: "DELETE" });
+                    const res = await fetch(`https://artify-server-jade.vercel.app/artworks/${id}`,
+                        { method: "DELETE" });
                     if (res.ok) {
                         toast.success("Artwork deleted successfully!");
                         fetchArtworks();
@@ -87,7 +88,7 @@ const MyGallery = () => {
         if (!editingArtwork) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/artworks/${editingArtwork._id}`, {
+            const res = await fetch(`https://artify-server-jade.vercel.app/artworks/${editingArtwork._id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

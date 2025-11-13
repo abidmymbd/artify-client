@@ -11,7 +11,7 @@ const CommunityHighlights = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/artworks")
+        fetch("https://artify-server-jade.vercel.app/artworks")
             .then((res) => res.json())
             .then((data) => {
                 const sorted = data.sort((a, b) => (b.likes || 0) - (a.likes || 0)).slice(0, 3);

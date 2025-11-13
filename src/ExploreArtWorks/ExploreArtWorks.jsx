@@ -13,7 +13,7 @@ const ExploreArtWorks = () => {
     const fetchArtworks = async (query = "") => {
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:3000/artworks?search=${query}`);
+            const res = await fetch(`https://artify-server-jade.vercel.app/artworks?search=${query}`);
             const data = await res.json();
             setArtworks(data);
 

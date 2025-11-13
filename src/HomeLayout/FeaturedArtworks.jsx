@@ -7,7 +7,7 @@ const FeaturedArtworks = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/featured-artworks")
+        fetch("https://artify-server-jade.vercel.app/featured-artworks")
             .then((res) => res.json())
             .then((data) => setArtworks(data))
             .catch(() => toast.error("Failed to load artworks"))

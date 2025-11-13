@@ -11,7 +11,7 @@ const MyFavourites = () => {
     useEffect(() => {
         const fetchFavorites = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/favorites/${userEmail}`);
+                const res = await fetch(`https://artify-server-jade.vercel.app/favorites/${userEmail}`);
                 const data = await res.json();
 
                 if (Array.isArray(data)) {
@@ -44,7 +44,7 @@ const MyFavourites = () => {
 
         if (result.isConfirmed) {
             try {
-                const res = await fetch(`http://localhost:3000/favorites/${id}`, {
+                const res = await fetch(`https://artify-server-jade.vercel.app/favorites/${id}`, {
                     method: "DELETE",
                 });
                 const data = await res.json();

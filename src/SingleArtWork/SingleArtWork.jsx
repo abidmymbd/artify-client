@@ -20,20 +20,20 @@ const SingleArtWork = () => {
         const fetchArtworkAndFavorites = async () => {
             try {
                 // Fetch artwork
-                const res = await fetch(`http://localhost:3000/artworks/${id}`);
+                const res = await fetch(`https://artify-server-jade.vercel.app/artworks/${id}`);
                 const data = await res.json();
                 setArtwork(data);
 
                 // Fetch total artworks by artist
                 if (data.userEmail) {
-                    fetch(`http://localhost:3000/artist/${data.userEmail}/artworks/count`)
+                    fetch(`https://artify-server-jade.vercel.app/artist/${data.userEmail}/artworks/count`)
                         .then((res) => res.json())
                         .then((countData) => setTotalArtworks(countData.totalArtworks))
                         .catch(() => toast.error("Failed to load artist info"));
                 }
 
                 // Check if this artwork is already in favorites
-                const favRes = await fetch(`http://localhost:3000/favorites/${userEmail}`);
+                const favRes = await fetch(`https://artify-server-jade.vercel.app/favorites/${userEmail}`);
                 const favData = await favRes.json();
                 const found = favData.find((f) => f.artworkId === id);
                 if (found) {
@@ -54,7 +54,7 @@ const SingleArtWork = () => {
         try {
             if (favorite) {
                 // Remove from favorites
-                const res = await fetch(`http://localhost:3000/favorites/${favoriteId}`, {
+                const res = await fetch(`https://artify-server-jade.vercel.app/favorites/${favoriteId}`, {
                     method: "DELETE",
                 });
                 const data = await res.json();
@@ -68,7 +68,7 @@ const SingleArtWork = () => {
                 }
             } else {
                 // Add to favorites
-                const res = await fetch("http://localhost:3000/favorites", {
+                const res = await fetch("https://artify-server-jade.vercel.app/favorites", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -88,7 +88,7 @@ const SingleArtWork = () => {
                     setFavorite(true);
 
                     // Refresh favorites to get ID for deletion
-                    const favRes = await fetch(`http://localhost:3000/favorites/${userEmail}`);
+                    const favRes = await fetch(`https://artify-server-jade.vercel.app/favorites/${userEmail}`);
                     const favData = await favRes.json();
                     const found = favData.find((f) => f.artworkId === id);
                     if (found) setFavoriteId(found._id);
@@ -106,7 +106,7 @@ const SingleArtWork = () => {
     const handleLike = async () => {
         if (liked) return;
         try {
-            const res = await fetch(`http://localhost:3000/artworks/${id}/like`, {
+            const res = await fetch(`https://artify-server-jade.vercel.app/artworks/${id}/like`, {
                 method: "PATCH",
             });
             const data = await res.json();
